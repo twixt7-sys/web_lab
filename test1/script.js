@@ -14,9 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
             this.vel = { x: 0, y: 0 };
             this.acc = { x: 0, y: 0 };
             this.mass = mass;
-            this.friction = 0.998; // Friction coefficient
+            this.friction = 0.998;
         }
-
         update() {
             this.vel.x *= this.friction;
             this.vel.y *= this.friction;
