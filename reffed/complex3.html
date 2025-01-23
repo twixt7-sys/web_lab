@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simplified Synesthesia</title>
+<style>
+body {
+  font-family: sans-serif;
+}
+#output {
+  font-size: 2em;
+}
+.colored-letter {
+  display: inline-block; /* Prevents line breaks between letters */
+}
+</style>
+</head>
+<body>
+
+<h1>Grapheme-Color Simulation</h1>
+<input type="text" id="input" placeholder="Enter text">
+<div id="output"></div>
+
+<script>
+const inputField = document.getElementById('input');
+const outputDiv = document.getElementById('output');
+
+// Very basic color mapping (expand this for more letters/numbers)
+const colorMap = {
+  'a': 'red',
+  'b': 'blue',
+  'c': 'green',
+  '1': 'orange',
+  '2': 'purple',
+  '3': 'yellow'
+};
+
+inputField.addEventListener('input', () => {
+  const inputText = inputField.value.toLowerCase();
+  let outputHTML = '';
+
+  for (let i = 0; i < inputText.length; i++) {
+    const char = inputText[i];
+    const color = colorMap[char] || 'black'; // Default to black if no color is mapped
+
+    outputHTML += `<span class="colored-letter" style="color: ${color}">${char}</span>`;
+  }
+
+  outputDiv.innerHTML = outputHTML;
+});
+</script>
+
+</body>
+</html>
